@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./App.css";
 import Square from "./Square";
 
-let intialState = new Array(9).fill("")
+let intialState = new Array(9).fill("");
 
 function App() {
   const [gameState, setGameState] = useState(intialState);
@@ -52,7 +52,18 @@ function App() {
 
   return (
     <div className="app-header">
-      <h3 className="heading-text">Tic-Tac-Toe game using ReactJS</h3>
+      <div className="header">
+        <h3 className="heading-text">Tic-Tac-Toe game using ReactJS</h3>
+        <button
+          className="clear-button"
+          onClick={() => {
+            setGameState(intialState);
+          }}
+        >
+          Clear Game
+        </button>
+      </div>
+
       <div className="row square-center">
         <Square
           state={gameState[0]}
@@ -95,7 +106,6 @@ function App() {
           handleSquareClick={() => handleSquareClick(8)}
         />
       </div>
-      <button className="clear-button" onClick={()=>{setGameState(intialState)}}>Clear Game</button>
     </div>
   );
 }
